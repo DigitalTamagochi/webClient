@@ -140,3 +140,4 @@ cython_debug/
 
 # My ignor
 src/config.py
+.DS_Store
