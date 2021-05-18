@@ -51,7 +51,7 @@ def jest_add():
 
     elif request.method == 'POST':
         if not request.cookies.get('foo'):
-            resp = make_response(render_template('jest_add.html'), wrong=True)
+            resp = make_response(render_template('jest_add.html'))
             # resp.set_cookie('foo', 'bar', max_age=60*60*24*365*2)
         else:
             user_login = request.cookies.get('login')
@@ -61,7 +61,7 @@ def jest_add():
 
             result_list = try_add_jest(user_login, user_token, number)
             if result_list is None:
-                resp = make_response(render_template('jest_add.html'), wrong=True)
+                resp = make_response(render_template('jest_add.html'))
             else:
                 resp = make_response(redirect("/"))#,('index.html', login=user_login, data=result_list))
 
