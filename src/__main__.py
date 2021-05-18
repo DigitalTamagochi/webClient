@@ -1,7 +1,8 @@
 from .init import app
+import os
 # from .config import FLASK_PORT, FLASK_DEBUG
 
-FLASK_PORT = 8000
+FLASK_PORT = int(os.environ.get('PORT', 8000))
 FLASK_DEBUG = True
 SALT = b'$2b$12$IXLidDjhFEVpIIhSZoMp/.'
 
