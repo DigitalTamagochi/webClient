@@ -54,7 +54,7 @@ def jest_edit():
 
     elif request.method == 'POST':
         if not request.cookies.get('foo'):
-            resp = make_response(render_template('jest_edit.html'), wrong=True)
+            resp = make_response(render_template('jest_edit.html'))
             # resp.set_cookie('foo', 'bar', max_age=60*60*24*365*2)
         else:
             user_login = request.cookies.get('login')
@@ -66,7 +66,7 @@ def jest_edit():
 
             result_list = try_change_jest(user_login, user_token, number, delta)
             if result_list is None:
-                resp = make_response(render_template('jest_edit.html'), wrong=True)
+                resp = make_response(render_template('jest_edit.html'))
             else:
                 resp = make_response(redirect("/"))#,('index.html', login=user_login, data=result_list))
 
