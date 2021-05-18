@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Mainpage {% endblock %}
+
+{% block content %}
+
+{% if logged == True %}
+    <p>You have logged in as {{ login }}!</p>
+    your data : {{ data }}
+{% endif %}
+
+{% if logged == False %}
+
+    You have not logged in!
+
+    Please, <a class="nav-item nav-link" href="/login">Login</a>
+{% endif %}
+
+
+
+
+
+{% endblock %}

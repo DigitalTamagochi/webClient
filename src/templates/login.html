@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 mx-md-auto pt-5">
+            <h1>Login</h1>
+            {% if bad_login %}
+            <div class="alert alert-danger" role="alert">
+                Wrong password!
+            </div>
+            {% endif %}
+
+            {% if bad_request %}
+            <div class="alert alert-secondary" role="alert">
+                Something gone wrong, server does not respond!
+            </div>
+            {% endif %}
+            <form method="POST" action="{{ url_for('login.login', next=request.args.get('next')) }}">
+                <div class="form-group">
+                    <label for="login">Login</label>
+                    <input type="login" class="form-control" name="login" placeholder="Login">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
